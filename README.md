@@ -65,3 +65,95 @@ IRAS employs a multi-agent framework where specialized agents handle distinct ta
    ```bash
    git clone https://github.com/your-username/iras.git
    cd iras
+
+
+   ```
+   Replace `your-username` with your GitHub username.
+
+2. **Install Dependencies**:  
+   ```bash
+   pip install crewai ollama pdfplumber faiss-cpu numpy
+   ```
+
+3. **Set Up Ollama**:  
+   - Install Ollama: [ollama.ai](https://ollama.ai/)
+   - Pull the `llama2` model:  
+     ```bash
+     ollama pull llama2
+     ```
+   - Start the server:  
+     ```bash
+     ollama serve
+     ```
+
+4. **Prepare Input Data**:  
+   - Add `job_descriptions.csv` with columns "Job Title" and "Job Description".
+   - Create a `CVs` folder and place candidate CV PDFs inside.
+
+5. **Configure Email**:  
+   - Edit `agents.py` with your SMTP details:  
+     ```python
+     sender_email = "your_email@gmail.com"
+     sender_password = "your_app_specific_password"
+     ```
+
+---
+
+## Usage
+
+1. **Run the System**:  
+   ```bash
+   python main.py
+   ```
+
+2. **What Happens**:  
+   - IRAS processes JDs and CVs, stores data, generates embeddings, matches candidates, shortlists them, and sends emails.
+
+3. **Outputs**:  
+   - `recruitment.db`: SQLite database with JD and CV data.
+   - `cv_index.faiss` & `cv_ids.pkl`: Faiss index for CV embeddings.
+   - Emails sent to shortlisted candidates.
+
+---
+
+## Project Structure
+
+```bash
+iras/
+├── setup.py       # Database setup and file reading
+├── agents.py      # Agent definitions and tasks
+├── main.py        # Main script to run IRAS
+├── job_descriptions.csv  # Input JD data
+├── CVs/           # Folder for CV PDFs
+└── README.md      # This file
+```
+
+---
+
+## Conclusion
+
+IRAS transforms recruitment by automating tedious tasks with AI-driven precision. It offers:
+- Faster hiring through automation.
+- Cost savings by reducing manual effort.
+- Better candidate-job matches via semantic analysis.
+
+Upload this repository to GitHub, update the clone URL, and submit the link for your hackathon!
+
+---
+
+**Repository Link**: [https://github.com/your-username/iras](https://github.com/your-username/iras)  
+Replace with your actual repo URL after uploading.
+```
+
+---
+
+### Next Steps
+1. **Fill the Form**: Use the **Problem Statement** and **Solution** sections above directly in your form.
+2. **Upload to GitHub**:  
+   - Create a new repository named `iras` on GitHub.
+   - Add your project files (`setup.py`, `agents.py`, `main.py`, `job_descriptions.csv`, `CVs/` folder).
+   - Copy the README text into a `README.md` file and upload it.
+   - Update the repository URL in the README and your form submission.
+3. **Submit**: Provide the GitHub link as required.
+
+You’re all set to showcase IRAS! Let me know if you need help with anything else.
